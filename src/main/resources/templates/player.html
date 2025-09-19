@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <title th:text="${video.title}"></title>
+</head>
+<body>
+<div class="container">
+    <h2 th:text="${video.title}"></h2>
+    <hr>
+    <div class="video-player">
+        <video width="640" height="360" controls>
+            <source th:src="@{${video.filePath}}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <p th:text="${video.description}" class="video-description"></p>
+
+    <hr>
+
+    <!-- Cache Info -->
+    <h3>Cache Info</h3>
+
+    <table class="cache-info-table" th:if="${cacheEntry != null}">
+        <tr>
+            <th>Hits</th>
+            <th>Last Accessed</th>
+            <th>Size (bytes)</th>
+            <th>Score</th>
+        </tr>
+        <tr>
+            <td th:text="${cacheEntry.hits}"></td>
+            <td th:text="${cacheEntry.lastAccessed}"></td>
+            <td th:text="${cacheEntry.sizeBytes}"></td>
+            <td th:text="${cacheEntry.score}"></td>
+        </tr>
+    </table>
+
+    <p th:if="${cacheEntry == null}">Cache entry not found.</p>
+
+    <div class="back-home">
+        <a href="/">Back to Home</a>
+    </div>
+</div>
+</body>
+</html>

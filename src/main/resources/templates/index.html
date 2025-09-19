@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{css/style.css}">
+    <title>Video Streaming Home</title>
+</head>
+<body>
+<div class="container">
+    <h1>Video Streaming App</h1>
+
+    <div class="upload-container">
+        <a class="upload-link" href="/upload">Upload New Video</a>
+    </div>
+
+    <hr>
+
+    <h3>Available Videos</h3>
+    <table class="video-table">
+        <thead>
+        <tr>
+            <th>Video Title</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="video : ${videos}">
+            <td th:text="${video.title}"></td>
+            <td>
+                <a th:href="@{'/video/' + ${video.id}}" class="view-link">View</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <hr>
+
+    <h3>Cache Management</h3>
+    <table class="cache-table">
+        <thead>
+        <tr>
+            <th>Action</th>
+            <th>Trigger</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>View Cache Entries</td>
+            <td><a href="/api/cache/entries" target="_blank" class="post-link">Go</a></td>
+        </tr>
+        <tr>
+            <td>Ensure Capacity</td>
+            <td><a href="#" class="post-link" onclick="postTo('/api/cache/ensureCapacity')">Execute</a></td>
+        </tr>
+        <tr>
+            <td>Set Candidate K = 5</td>
+            <td><a href="#" class="post-link" onclick="postTo('/api/cache/candidateK/5')">Execute</a></td>
+        </tr>
+        <tr>
+            <td>Set Capacity = 1MB</td>
+            <td><a href="#" class="post-link" onclick="postTo('/api/cache/capacity/1048576')">Execute</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<script>
+    async function postTo(url) {
+        try {
+            let res = await fetch(url, {method: "POST"});
+            let text = await res.text();
+            alert("Response from " + url + ": " + text);
+        } catch (e) {
+            alert("Error: " + e);
+        }
+    }
+</script>
+</body>
+</html>

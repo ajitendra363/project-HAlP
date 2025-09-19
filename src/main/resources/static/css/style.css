@@ -1,0 +1,165 @@
+/* Body and container */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 90%;
+    max-width: 900px;
+    background-color: #fff;
+    margin: 40px 0;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+/* Headings */
+h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+h3 {
+    color: #34495e;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+/* Upload link and Back buttons */
+.upload-link,
+.back-home a,
+button {
+    display: inline-block;
+    background-color: #27ae60;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.upload-link:hover,
+.back-home a:hover,
+button:hover {
+    background-color: #2ecc71;
+}
+
+/* Upload form styling */
+.upload-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.upload-form label {
+    font-weight: bold;
+}
+
+.upload-form input[type="text"],
+.upload-form textarea,
+.upload-form input[type="file"] {
+    width: 100%;
+    max-width: 500px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.upload-form textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.upload-form button {
+    width: 150px;
+    font-size: 16px;
+}
+
+/* Video player styling */
+.video-player {
+    margin: 20px 0;
+}
+
+video {
+    width: 100%;
+    max-width: 640px;
+    border-radius: 5px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.video-description {
+    margin: 15px 0;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Cache info tables */
+.cache-info-table,
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0 30px 0;
+}
+
+.cache-info-table th,
+.cache-info-table td,
+table th,
+table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+.cache-info-table th,
+table th {
+    background-color: #3498db;
+    color: white;
+}
+
+.cache-info-table tr:nth-child(even),
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.cache-info-table tr:hover,
+table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Links inside tables or actions */
+.view-link,
+.post-link {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #e67e22;
+    transition: background-color 0.3s ease;
+}
+
+.view-link:hover,
+.post-link:hover {
+    background-color: #d35400;
+}
+
+/* Horizontal rule */
+hr {
+    border: 0;
+    height: 1px;
+    background-color: #ddd;
+    margin: 30px 0;
+}
